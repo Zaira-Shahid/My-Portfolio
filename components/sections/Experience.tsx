@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/Reveal";
 import { ExperienceCard } from "@/components/ui/ExperienceCard";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { experience } from "@/content/experience";
@@ -22,7 +23,9 @@ export function Experience() {
                 <span className="absolute -left-12 top-0 flex h-8 w-8 items-center justify-center rounded-full border border-accent-violet/50 bg-bg font-mono text-[10px] text-accent-violet sm:-left-14 sm:h-9 sm:w-9">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <ExperienceCard entry={entry} />
+                <Reveal delay={i * 100}>
+                  <ExperienceCard entry={entry} />
+                </Reveal>
               </li>
             ))}
           </ol>

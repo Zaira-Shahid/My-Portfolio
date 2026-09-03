@@ -82,6 +82,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 section[id] {
@@ -89,6 +90,7 @@ section[id] {
 }
 
 body {
+  overflow-x: clip;
   background: var(--color-bg);
   color: var(--color-text-primary);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;

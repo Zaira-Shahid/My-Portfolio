@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal } from "@/components/motion/Reveal";
 import { CredentialCard } from "@/components/ui/CredentialCard";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { about, education, profile } from "@/content/profile";
@@ -15,7 +16,7 @@ export function About() {
         <SectionLabel index="01" label="About" />
 
         <div className="mt-6 grid gap-12 md:grid-cols-[1.15fr_1fr] md:gap-16">
-          <div>
+          <Reveal>
             <div className="flex items-center gap-5">
               {photoAvailable && (
                 <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border border-border sm:h-20 sm:w-20">
@@ -45,9 +46,9 @@ export function About() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          <div className="flex flex-col gap-6">
+          <Reveal delay={120} className="flex flex-col gap-6">
             <div className="rounded-card border border-border bg-surface/60 p-6">
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-secondary">
                 Current Focus
@@ -73,7 +74,7 @@ export function About() {
               logo={credential.logo}
               logoAvailable={logoAvailable}
             />
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { skillGroups } from "@/content/skills";
 
@@ -11,22 +12,24 @@ export function Skills() {
         </h2>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {skillGroups.map((group) => (
-            <div key={group.id} className="rounded-card border border-border bg-surface/50 p-6">
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-secondary">
-                {group.label}
-              </p>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
-                  <li
-                    key={skill}
-                    className="rounded-badge border border-border px-2.5 py-1 text-xs text-text-secondary"
-                  >
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {skillGroups.map((group, i) => (
+            <Reveal key={group.id} delay={i * 70}>
+              <div className="rounded-card border border-border bg-surface/50 p-6">
+                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-secondary">
+                  {group.label}
+                </p>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <li
+                      key={skill}
+                      className="rounded-badge border border-border px-2.5 py-1 text-xs text-text-secondary"
+                    >
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>
