@@ -9,7 +9,7 @@ export function Expertise() {
       <div className="mx-auto max-w-6xl">
         <SectionLabel index="02" label="Expertise" />
         <h2 className="mt-6 max-w-xl text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
-          Four ways I build.
+          How I build.
         </h2>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2">

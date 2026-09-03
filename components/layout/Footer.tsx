@@ -11,7 +11,7 @@ export function Footer() {
         <div>
           <p className="text-sm text-text-secondary">© {year} Zaira Shahid</p>
           <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-text-secondary">
-            AI Automation · Full-Stack · GTM Engineering
+            Full-Stack · AI Automation
           </p>
         </div>
 

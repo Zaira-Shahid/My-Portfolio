@@ -19,7 +19,7 @@ export function ProjectCard({
     <article
       className={`group relative flex h-full flex-col overflow-hidden rounded-card-lg border border-border bg-surface/50 transition-all duration-300 ${
         isLinkable
-          ? "hover:-translate-y-1 hover:border-accent-violet/30 hover:shadow-[0_0_40px_rgba(139,92,246,0.15)]"
+          ? "hover:-translate-y-1 hover:border-accent-violet/30 hover:shadow-[0_0_40px_rgba(169,143,210,0.2)]"
           : "opacity-90"
       }`}
     >
@@ -28,7 +28,7 @@ export function ProjectCard({
           isLinkable ? "group-hover:scale-[1.03]" : ""
         } ${compact ? "h-40" : "h-56 sm:h-64"}`}
       >
-        <ProjectVisual pattern={project.visualPattern} />
+        <ProjectVisual id={project.id} />
         <span className="absolute left-4 top-4 font-mono text-xs text-text-secondary">
           {number}
         </span>

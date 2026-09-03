@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = "Zaira Shahid — AI Automation Engineer & Full-Stack Developer";
+const title = "Zaira Shahid — Full-Stack Engineer & AI Automation Engineer";
 const description =
-  "Zaira Shahid is an AI Automation Engineer, Full-Stack Developer and GTM Engineer building intelligent automation systems, modern interfaces and AI-powered digital products.";
+  "Zaira Shahid is a Full-Stack Engineer and AI Automation Engineer building intelligent automation systems, modern interfaces and AI-powered digital products.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
@@ -28,9 +28,8 @@ export const metadata: Metadata = {
   description,
   keywords: [
     "Zaira Shahid",
+    "Full-Stack Engineer",
     "AI Automation Engineer",
-    "Full-Stack Developer",
-    "GTM Engineer",
     "Next.js Developer",
     "AI Automation",
   ],

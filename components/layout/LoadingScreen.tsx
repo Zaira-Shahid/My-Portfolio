@@ -32,7 +32,7 @@ export function LoadingScreen({ onFinish }: { onFinish: () => void }) {
       <p className="text-2xl font-bold tracking-tight text-text-primary sm:text-3xl">
         Zaira<span className="text-accent-violet">.</span>
       </p>
-      <div className="h-px w-40 overflow-hidden bg-white/10">
+      <div className="h-px w-40 overflow-hidden bg-border">
         <div className="h-full w-full origin-left animate-loading-bar bg-gradient-to-r from-accent-violet via-accent-blue to-accent-violet" />
       </div>
     </div>

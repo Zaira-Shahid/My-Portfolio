@@ -42,16 +42,8 @@ export const skillGroups: SkillGroup[] = [
 
 export const expertise = [
   {
-    id: "frontend-engineering",
-    number: "01",
-    title: "Frontend Engineering",
-    description:
-      "Building responsive, accessible and polished interfaces with modern React-based architecture.",
-    chips: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-  },
-  {
     id: "ai-automation",
-    number: "02",
+    number: "01",
     title: "AI Automation",
     description:
       "Designing practical AI workflows, agents and business automations that reduce repetitive work.",
@@ -59,19 +51,11 @@ export const expertise = [
   },
   {
     id: "full-stack-development",
-    number: "03",
-    title: "Full-Stack Development",
+    number: "02",
+    title: "Full-Stack Engineering",
     description:
       "Connecting frontend products with secure databases, authentication, APIs and backend services.",
     chips: ["Next.js", "Supabase", "PostgreSQL", "REST APIs"],
-  },
-  {
-    id: "gtm-engineering",
-    number: "04",
-    title: "GTM Engineering",
-    description:
-      "Building AI-driven go-to-market systems: automated prospecting, outreach, and CRM/revenue-ops workflows.",
-    chips: ["n8n", "LLM APIs", "CRM APIs", "Automation Workflows", "Lead Enrichment"],
   },
 ] as const;
 
