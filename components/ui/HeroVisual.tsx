@@ -8,7 +8,7 @@ export function HeroVisual() {
 
       <div className="absolute h-56 w-56 rounded-full border border-accent-violet/20 sm:h-80 sm:w-80" />
       <div className="absolute h-40 w-40 rounded-full border border-accent-blue/20 sm:h-60 sm:w-60" />
-      <div className="absolute h-24 w-24 rounded-full border border-white/10 sm:h-40 sm:w-40" />
+      <div className="absolute h-24 w-24 rounded-full border border-border sm:h-40 sm:w-40" />
 
       <div className="h-14 w-14 rounded-full bg-accent-violet/70 blur-2xl" />
 

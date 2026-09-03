@@ -5,8 +5,8 @@ export const profile = {
 
   // Combined role line used in hero / SEO. Individual roles kept separate
   // so components can stack them on mobile if needed.
-  roles: ["AI Automation Engineer", "Full-Stack Developer", "GTM Engineer"],
-  title: "AI Automation Engineer & Full-Stack Developer",
+  roles: ["Full-Stack Engineer", "AI Automation Engineer"],
+  title: "Full-Stack Engineer & AI Automation Engineer",
 
   tagline:
     "I build modern interfaces, AI-powered automation systems, and full-stack products that turn complex ideas into practical digital experiences.",
