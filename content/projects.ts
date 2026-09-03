@@ -1,6 +1,19 @@
 export type ProjectStatus = "live" | "prototype" | "in-development";
 export type CodeAccess = "public" | "private";
 
+// Until real product screenshots are available, project cards render an
+// abstract, on-brand CSS/SVG visual keyed to this pattern instead of a
+// literal UI mockup. See components/ui/ProjectVisual.tsx.
+export type VisualPattern =
+  | "chart"
+  | "node-graph"
+  | "weave"
+  | "pulse-wave"
+  | "eye-scan"
+  | "shield-scan"
+  | "matrix"
+  | "viewfinder";
+
 export type Project = {
   id: string;
   title: string;
@@ -10,6 +23,7 @@ export type Project = {
   capabilities?: string[];
   technologies: string[];
   image?: string;
+  visualPattern: VisualPattern;
   liveUrl?: string;
   githubUrl?: string;
   caseStudyUrl?: string;
@@ -36,6 +50,7 @@ export const projects: Project[] = [
       "Telegram bot integration",
     ],
     technologies: ["Next.js", "Firebase", "n8n", "Vercel", "Telegram API"],
+    visualPattern: "chart",
     githubUrl: "https://github.com/Zaira-Shahid/gold-bot",
     status: "prototype",
     codeAccess: "public",
@@ -54,6 +69,7 @@ export const projects: Project[] = [
       "Platform-specific content generation",
     ],
     technologies: ["LLM APIs", "n8n", "Automation Workflows"],
+    visualPattern: "node-graph",
     githubUrl: "https://github.com/Zaira-Shahid/AI-Social-Media-Automation-System",
     status: "in-development",
     codeAccess: "public",
@@ -72,6 +88,7 @@ export const projects: Project[] = [
       "Order management",
     ],
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
+    visualPattern: "weave",
     githubUrl: "https://github.com/Zaira-Shahid/luxury-couture",
     status: "in-development",
     codeAccess: "public",
@@ -84,6 +101,7 @@ export const projects: Project[] = [
     description:
       "A multilingual menstrual health and support application concept, focused on accessible digital assistance through a localized, safety-aware experience.",
     technologies: ["Flutter", "Dart", "NLP", "Localization"],
+    visualPattern: "pulse-wave",
     githubUrl: "https://github.com/Zaira-Shahid/Menstrual-support-system",
     status: "in-development",
     codeAccess: "public",
@@ -103,6 +121,7 @@ export const projects: Project[] = [
       "Standalone .exe packaging",
     ],
     technologies: ["Python", "OpenCV", "Tkinter", "PyInstaller"],
+    visualPattern: "eye-scan",
     githubUrl: "https://github.com/Zaira-Shahid/drowsiness-detector-",
     status: "prototype",
     codeAccess: "public",
@@ -114,6 +133,7 @@ export const projects: Project[] = [
     category: "AI · LLM",
     description: "See the repository for full project details.",
     technologies: ["LLM APIs"],
+    visualPattern: "shield-scan",
     githubUrl: "https://github.com/Zaira-Shahid/Sentinel-LLM",
     status: "in-development",
     codeAccess: "public",
@@ -125,6 +145,7 @@ export const projects: Project[] = [
     category: "AI · AUTOMATION",
     description: "See the repository for full project details.",
     technologies: ["LLM APIs"],
+    visualPattern: "node-graph",
     githubUrl: "https://github.com/Zaira-Shahid/NovaBot",
     status: "in-development",
     codeAccess: "public",
@@ -144,6 +165,7 @@ export const projects: Project[] = [
       "Real-time dashboard",
     ],
     technologies: ["Python", "Scikit-learn", "FastAPI", "Docker", "Railway", "Vercel", "Twilio"],
+    visualPattern: "shield-scan",
     status: "prototype",
     codeAccess: "private",
     featured: false,
@@ -157,6 +179,7 @@ export const projects: Project[] = [
       "A Multinomial Naive Bayes spam classifier trained on the Kaggle SMS Spam dataset (5,572 samples), reaching 97.85% accuracy.",
     capabilities: ["Multinomial Naive Bayes", "97.85% accuracy", "CountVectorizer feature extraction"],
     technologies: ["Python", "Scikit-learn", "NLP", "CountVectorizer"],
+    visualPattern: "matrix",
     status: "prototype",
     codeAccess: "private",
     featured: false,
@@ -173,6 +196,7 @@ export const projects: Project[] = [
       "Bounding boxes & alert banners",
     ],
     technologies: ["Python", "OpenCV", "YOLO", "MediaPipe"],
+    visualPattern: "viewfinder",
     status: "prototype",
     codeAccess: "private",
     featured: false,
