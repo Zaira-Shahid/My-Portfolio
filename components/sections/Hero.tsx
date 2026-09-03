@@ -4,6 +4,7 @@ import { StatCard } from "@/components/ui/StatCard";
 import { experience } from "@/content/experience";
 import { profile } from "@/content/profile";
 import { projects } from "@/content/projects";
+import { publicFileExists } from "@/lib/publicFileExists";
 
 // Derived from real content data so these numbers can never drift or be invented.
 const earliestYear = Math.min(...experience.map((entry) => Number.parseInt(entry.start, 10)));
@@ -16,6 +17,8 @@ const stats = [
 ];
 
 export function Hero() {
+  const resumeAvailable = publicFileExists(profile.resume.href);
+
   return (
     <section
       id="home"
@@ -57,7 +60,7 @@ export function Hero() {
               <Button href="#contact" variant="secondary" arrow={false}>
                 Get In Touch
               </Button>
-              {profile.resume.available && (
+              {resumeAvailable && (
                 <Button href={profile.resume.href} variant="secondary">
                   Download Resume
                 </Button>
