@@ -30,14 +30,11 @@ export function LoadingScreen({ onFinish }: { onFinish: () => void }) {
       }`}
     >
       <p className="text-2xl font-bold tracking-tight text-text-primary sm:text-3xl">
-        zaira shahid<span className="text-accent-violet">.</span>
+        Zaira<span className="text-accent-violet">.</span>
       </p>
       <div className="h-px w-40 overflow-hidden bg-white/10">
         <div className="h-full w-full origin-left animate-loading-bar bg-gradient-to-r from-accent-violet via-accent-blue to-accent-violet" />
       </div>
-      <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-text-secondary">
-        Initializing experience
-      </p>
     </div>
   );
 }
