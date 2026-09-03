@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/Reveal";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { projects } from "@/content/projects";
@@ -20,12 +21,14 @@ export function Projects() {
 
         <div className="mt-10 grid gap-8 md:grid-cols-2">
           {featuredProjects.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
+            <Reveal key={project.id} delay={i * 90}>
+              <ProjectCard project={project} index={i} />
+            </Reveal>
           ))}
         </div>
 
         {otherProjects.length > 0 && (
-          <div className="mt-16">
+          <Reveal className="mt-16">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-text-secondary">
               More Projects
             </p>
@@ -39,7 +42,7 @@ export function Projects() {
                 />
               ))}
             </div>
-          </div>
+          </Reveal>
         )}
       </div>
     </section>

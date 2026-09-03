@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/Reveal";
 import { ExpertiseCard } from "@/components/ui/ExpertiseCard";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { expertise } from "@/content/skills";
@@ -12,14 +13,15 @@ export function Expertise() {
         </h2>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2">
-          {expertise.map((item) => (
-            <ExpertiseCard
-              key={item.id}
-              number={item.number}
-              title={item.title}
-              description={item.description}
-              chips={item.chips}
-            />
+          {expertise.map((item, i) => (
+            <Reveal key={item.id} delay={i * 80}>
+              <ExpertiseCard
+                number={item.number}
+                title={item.title}
+                description={item.description}
+                chips={item.chips}
+              />
+            </Reveal>
           ))}
         </div>
       </div>

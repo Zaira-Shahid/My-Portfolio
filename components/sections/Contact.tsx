@@ -1,4 +1,5 @@
 import { Mail } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { ContactForm } from "@/components/ui/ContactForm";
 import { GithubMark, LinkedinMark } from "@/components/ui/icons";
@@ -52,9 +53,9 @@ export function Contact() {
           )}
         </div>
 
-        <div className="mt-14 rounded-card-lg border border-border bg-surface/50 p-6 sm:p-8">
+        <Reveal className="mt-14 rounded-card-lg border border-border bg-surface/50 p-6 sm:p-8">
           <ContactForm />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AppShell } from "@/components/layout/AppShell";
 import { BackgroundAtmosphere } from "@/components/layout/BackgroundAtmosphere";
@@ -51,9 +51,25 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  icons: {
-    icon: "/favicon.ico",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#070707",
+  colorScheme: "dark",
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: profile.roles.join(", "),
+  url: profile.siteUrl,
+  email: profile.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: profile.location,
   },
+  sameAs: [profile.linkedin, profile.github],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -63,6 +79,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-bg text-text-primary">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <BackgroundAtmosphere />
         <a
           href="#home"
