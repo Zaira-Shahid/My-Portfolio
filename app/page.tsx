@@ -1,14 +1,13 @@
 import { About } from "@/components/sections/About";
+import { Experience } from "@/components/sections/Experience";
 import { Expertise } from "@/components/sections/Expertise";
 import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
+import { Skills } from "@/components/sections/Skills";
 
 // Stub sections give the nav real anchors to scroll to. Each one is
 // replaced with its real section component in a later build phase.
-const stubSections = [
-  { id: "experience", label: "04 — EXPERIENCE" },
-  { id: "contact", label: "07 — CONTACT" },
-];
+const stubSections = [{ id: "contact", label: "07 — CONTACT" }];
 
 export default function Home() {
   return (
@@ -17,6 +16,8 @@ export default function Home() {
       <About />
       <Expertise />
       <Projects />
+      <Experience />
+      <Skills />
 
       {stubSections.map((section) => (
         <section
