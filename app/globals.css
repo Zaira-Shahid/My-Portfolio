@@ -44,6 +44,7 @@
 
   --animate-fade-in: fade-in 400ms ease-out forwards;
   --animate-fade-in-up: fade-in-up 600ms ease-out forwards;
+  --animate-loading-bar: loading-bar 1.1s ease-in-out forwards;
 
   @keyframes fade-in {
     from {
@@ -64,6 +65,15 @@
       transform: translateY(0);
     }
   }
+
+  @keyframes loading-bar {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
 }
 
 * {
@@ -72,6 +82,10 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 96px;
 }
 
 body {
