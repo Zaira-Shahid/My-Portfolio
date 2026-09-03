@@ -1,4 +1,4 @@
-import { profile } from "@/content/profile";
+import { Hero } from "@/components/sections/Hero";
 
 // Stub sections give the nav real anchors to scroll to. Each one is
 // replaced with its real section component in a later build phase.
@@ -13,20 +13,7 @@ const stubSections = [
 export default function Home() {
   return (
     <>
-      <section
-        id="home"
-        className="flex min-h-screen flex-col items-center justify-center gap-6 px-6 text-center"
-      >
-        <p className="font-mono text-xs uppercase tracking-[0.3em] text-text-secondary">
-          {profile.roles.join(" · ")}
-        </p>
-        <h1 className="text-5xl font-bold tracking-tight text-text-primary sm:text-7xl">
-          Zaira Shahid<span className="text-accent-violet">.</span>
-        </h1>
-        <p className="max-w-xl text-balance text-base text-text-secondary sm:text-lg">
-          {profile.tagline}
-        </p>
-      </section>
+      <Hero />
 
       {stubSections.map((section) => (
         <section
