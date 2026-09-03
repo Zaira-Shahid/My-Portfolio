@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { Footer } from "./Footer";
 import { LoadingScreen } from "./LoadingScreen";
 import { MobileNav } from "./MobileNav";
 import { Navbar } from "./Navbar";
@@ -18,6 +19,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         }`}
       >
         {children}
+        <Footer />
       </main>
       <MobileNav />
     </>

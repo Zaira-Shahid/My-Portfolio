@@ -1,5 +1,6 @@
-import { ArrowUpRight, FolderGit2, Lock } from "lucide-react";
+import { ArrowUpRight, Lock } from "lucide-react";
 import type { Project } from "@/content/projects";
+import { GithubMark } from "./icons";
 import { ProjectVisual } from "./ProjectVisual";
 
 export function ProjectCard({
@@ -69,7 +70,7 @@ export function ProjectCard({
         <div className="mt-6 flex items-center gap-2 text-sm font-medium">
           {isLinkable ? (
             <span className="inline-flex items-center gap-1.5 text-text-primary">
-              <FolderGit2 className="h-4 w-4" aria-hidden="true" />
+              <GithubMark className="h-4 w-4" aria-hidden="true" />
               View Code
               <ArrowUpRight
                 className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
