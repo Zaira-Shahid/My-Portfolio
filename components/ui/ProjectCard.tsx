@@ -1,4 +1,6 @@
-import { ArrowUpRight, Lock } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, Lock, Play } from "lucide-react";
 import type { Project } from "@/content/projects";
 import { GithubMark } from "./icons";
 import { ProjectVisual } from "./ProjectVisual";
@@ -13,7 +15,8 @@ export function ProjectCard({
   compact?: boolean;
 }) {
   const number = String(index + 1).padStart(2, "0");
-  const isLinkable = Boolean(project.githubUrl);
+  const hasDetail = Boolean(project.detailPath);
+  const isLinkable = Boolean(project.githubUrl) && !hasDetail;
 
   const card = (
     <article
@@ -28,7 +31,18 @@ export function ProjectCard({
           isLinkable ? "group-hover:scale-[1.03]" : ""
         } ${compact ? "h-40" : "h-56 sm:h-64"}`}
       >
-        <ProjectVisual id={project.id} />
+        {project.coverImage ? (
+          <Image
+            src={project.coverImage.src}
+            alt={project.coverImage.alt}
+            fill
+            sizes="(min-width: 1152px) 560px, (min-width: 768px) 45vw, 100vw"
+            priority={index === 0}
+            className="object-cover object-top"
+          />
+        ) : (
+          <ProjectVisual id={project.id} />
+        )}
         <span className="absolute left-4 top-4 font-mono text-xs text-text-secondary">
           {number}
         </span>
@@ -52,9 +66,25 @@ export function ProjectCard({
             <span className="ml-2 text-sm font-normal text-text-secondary">{project.year}</span>
           )}
         </h3>
-        <p className={`mt-3 text-text-secondary ${compact ? "text-sm" : "text-sm sm:text-base"}`}>
-          {project.description}
-        </p>
+        {project.tagline && (
+          <p className="mt-2 text-sm font-medium text-text-primary sm:text-base">
+            {project.tagline}
+          </p>
+        )}
+        {hasDetail ? (
+          project.statusNote && (
+            <p className="mt-3 rounded-card border border-border bg-bg/40 px-4 py-3 text-xs text-text-secondary sm:text-sm">
+              <span className="font-mono uppercase tracking-[0.15em] text-accent-violet">
+                Status ·{" "}
+              </span>
+              {project.statusNote}
+            </p>
+          )
+        ) : (
+          <p className={`mt-3 text-text-secondary ${compact ? "text-sm" : "text-sm sm:text-base"}`}>
+            {project.description}
+          </p>
+        )}
 
         <ul className="mt-4 flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
@@ -67,8 +97,40 @@ export function ProjectCard({
           ))}
         </ul>
 
-        <div className="mt-6 flex items-center gap-2 text-sm font-medium">
-          {isLinkable ? (
+        <div className="mt-6 flex flex-wrap items-center gap-3 text-sm font-medium">
+          {hasDetail ? (
+            <>
+              {project.demoUrl && (
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-button bg-text-primary px-4 py-2 text-bg transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-violet"
+                >
+                  <Play className="h-4 w-4" aria-hidden="true" />
+                  Demo Video
+                </a>
+              )}
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-button border border-border px-4 py-2 text-text-primary transition-colors duration-300 hover:border-accent-violet/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-violet"
+                >
+                  <GithubMark className="h-4 w-4" aria-hidden="true" />
+                  Code
+                </a>
+              )}
+              <Link
+                href={project.detailPath!}
+                className="inline-flex items-center gap-1 text-text-secondary transition-colors hover:text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-violet"
+              >
+                Details
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </>
+          ) : isLinkable ? (
             <span className="inline-flex items-center gap-1.5 text-text-primary">
               <GithubMark className="h-4 w-4" aria-hidden="true" />
               View Code

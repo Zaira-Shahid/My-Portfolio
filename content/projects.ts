@@ -16,12 +16,102 @@ export type Project = {
   status: ProjectStatus;
   codeAccess: CodeAccess;
   featured: boolean;
+  // Optional richer fields, used by projects that have a detail page.
+  tagline?: string;
+  coverImage?: ProjectImage;
+  gallery?: ProjectImage[];
+  facts?: string[];
+  statusNote?: string;
+  demoUrl?: string;
+  detailPath?: string;
+};
+
+export type ProjectImage = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
 };
 
 // Projects with real, working GitHub links are featured first. Client work
 // and prototypes without a public repository are shown with less emphasis
 // and clearly marked "Code: Private". No links or metrics are invented.
 export const projects: Project[] = [
+  {
+    id: "ridemesh",
+    title: "RideMesh",
+    category: "FULL-STACK · AI OPTIMIZATION",
+    tagline:
+      "AI-assisted carpooling that matches passengers into journeys drivers are already making",
+    description:
+      "RideMesh asks \"which combination of journeys moves the most people with the fewest vehicle trips?\" instead of \"which car is nearest?\". Drivers declare a journey they are making anyway, passengers set how flexible they are, and a deterministic OR-Tools optimizer builds the plan within everyone's limits. Optimization decides, AI only predicts.",
+    facts: [
+      "103 of 104 spec modules complete",
+      "700+ unit tests and 900+ emulator-backed integration tests, plus Playwright end-to-end tests",
+      "Load test: 50 simultaneous route estimates all served after redesigning the rate limiter",
+      "Three apps: passenger app, driver app, admin operations dashboard",
+    ],
+    statusNote:
+      "Built and tested locally, not deployed. Payments in Stripe test mode, AI predictions are a prototype on synthetic data.",
+    technologies: [
+      "React Native (Expo)",
+      "Next.js",
+      "TypeScript",
+      "Firebase (Auth, Firestore, Cloud Functions)",
+      "Python",
+      "FastAPI",
+      "OR-Tools",
+      "scikit-learn",
+      "Stripe (test mode)",
+      "Vitest",
+      "Playwright",
+    ],
+    coverImage: {
+      src: "/images/ridemesh/admin-live-network.png",
+      alt: "RideMesh admin operations dashboard showing the live network map with vehicles, pickups and drop-offs across London",
+      width: 2400,
+      height: 1350,
+    },
+    gallery: [
+      {
+        src: "/images/ridemesh/passenger-request.png",
+        alt: "RideMesh passenger app, ride request screen",
+        width: 780,
+        height: 1688,
+      },
+      {
+        src: "/images/ridemesh/passenger-matched.png",
+        alt: "RideMesh passenger app showing a matched driver, pickup point and estimated trip",
+        width: 780,
+        height: 1688,
+      },
+      {
+        src: "/images/ridemesh/driver-home.png",
+        alt: "RideMesh driver app home screen",
+        width: 780,
+        height: 1688,
+      },
+      {
+        src: "/images/ridemesh/admin-analytics.png",
+        alt: "RideMesh admin analytics dashboard",
+        width: 2400,
+        height: 1350,
+      },
+      {
+        src: "/images/ridemesh/admin-ai-predictions.png",
+        alt: "RideMesh admin AI predictions dashboard",
+        width: 2400,
+        height: 1350,
+      },
+    ],
+    demoUrl:
+      "https://drive.google.com/file/d/1_POR2tvfeJmfzYp9Sj5V-JyJvZoe10JJ/view?usp=sharing",
+    githubUrl: "https://github.com/Zaira-Shahid/AI-Ride-Sharing-Transportation-Optimization-Platform",
+    detailPath: "/projects/ridemesh",
+    status: "prototype",
+    codeAccess: "public",
+    featured: true,
+  },
   {
     id: "gold-trading-bot",
     title: "Gold Trading Bot",

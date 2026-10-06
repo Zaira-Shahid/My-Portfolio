@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { useActiveSection } from "@/lib/useActiveSection";
 import { desktopNavIds, desktopNavLinks } from "./nav-links";
@@ -28,9 +29,9 @@ export function Navbar() {
         aria-label="Primary"
         className="mx-auto flex max-w-6xl items-center justify-between px-8 py-4"
       >
-        <a href="#home" className="font-mono text-sm tracking-tight text-text-primary">
+        <Link href="/#home" className="font-mono text-sm tracking-tight text-text-primary">
           zaira shahid<span className="text-accent-violet">.</span>
-        </a>
+        </Link>
 
         <ul className="flex items-center gap-8">
           {desktopNavLinks.map((link) => (
@@ -51,7 +52,7 @@ export function Navbar() {
         </ul>
 
         <Button
-          href="#contact"
+          href="/#contact"
           variant="primary"
           arrow={false}
           className="px-5 py-2.5 text-xs uppercase tracking-wide"
