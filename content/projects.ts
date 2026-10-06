@@ -20,7 +20,9 @@ export type Project = {
   tagline?: string;
   coverImage?: ProjectImage;
   gallery?: ProjectImage[];
-  facts?: string[];
+  howItWorks?: string[];
+  principle?: string;
+  facts?: { value: string; label: string }[];
   statusNote?: string;
   demoUrl?: string;
   detailPath?: string;
@@ -45,11 +47,24 @@ export const projects: Project[] = [
       "AI-assisted carpooling that matches passengers into journeys drivers are already making",
     description:
       "RideMesh asks \"which combination of journeys moves the most people with the fewest vehicle trips?\" instead of \"which car is nearest?\". Drivers declare a journey they are making anyway, passengers set how flexible they are, and a deterministic OR-Tools optimizer builds the plan within everyone's limits. Optimization decides, AI only predicts.",
+    howItWorks: [
+      "Drivers declare a journey they are making anyway.",
+      "Passengers set how flexible they are.",
+      "A deterministic OR-Tools optimizer builds the plan within everyone's limits.",
+    ],
+    principle:
+      "Optimization decides, AI only predicts.",
     facts: [
-      "103 of 104 spec modules complete",
-      "700+ unit tests and 900+ emulator-backed integration tests, plus Playwright end-to-end tests",
-      "Load test: 50 simultaneous route estimates all served after redesigning the rate limiter",
-      "Three apps: passenger app, driver app, admin operations dashboard",
+      { value: "700+", label: "Unit tests" },
+      {
+        value: "900+",
+        label: "Emulator-backed integration tests, plus Playwright end-to-end tests",
+      },
+      {
+        value: "50",
+        label: "Simultaneous route estimates all served in the load test, after redesigning the rate limiter",
+      },
+      { value: "3", label: "Apps: passenger app, driver app, admin operations dashboard" },
     ],
     statusNote:
       "Built and tested locally, not deployed. Payments in Stripe test mode, AI predictions are a prototype on synthetic data.",
